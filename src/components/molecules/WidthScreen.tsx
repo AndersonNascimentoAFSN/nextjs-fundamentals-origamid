@@ -5,7 +5,7 @@ import { tv } from 'tailwind-variants';
 
 import { useWidth } from "@/hooks"
 
-const title = tv({
+export const title = tv({
   base: 'font-semibold text-white text-sm py-1 px-4 rounded-full',
   variants: {
     active: {
@@ -15,7 +15,7 @@ const title = tv({
   }
 });
 
-export function WidthScreen() {
+export default function WidthScreen() {
   const [active, setActive] = useState(false)
   const { width } = useWidth()
 

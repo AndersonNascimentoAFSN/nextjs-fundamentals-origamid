@@ -1,5 +1,11 @@
 import { Metadata } from "next";
-import { WidthScreen } from "@/components/molecules/WidthScreen";
+import dynamic from "next/dynamic";
+
+const DynamicWidthScreen = dynamic(() =>
+  import("@/components/molecules/WidthScreen"), {
+  ssr: false,
+  loading: () => <p>Carregando...</p>,
+});
 
 export const metadata: Metadata = {
   title: "Sobre",
@@ -11,7 +17,7 @@ export default function AboutPage() {
     <div>
       <h2>Sobre</h2>
 
-      <WidthScreen />
+      <DynamicWidthScreen />
 
       <h2 id="empresa" className="mt-[1600px] p-10">Empresa</h2>
     </div>
