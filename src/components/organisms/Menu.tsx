@@ -1,6 +1,21 @@
-import { Link } from "../molecules";
+import { cookies } from 'next/headers'
+import { Link } from "../molecules"
 
-export function Menu() {
+export async function Menu() {
+  const token = cookies().get('token')?.value
+
+  const response = await fetch('https://api.origamid.online/conta/perfil', {
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${token}`
+    }
+  })
+
+  const data: { autorizado: boolean, usuario: string } | undefined  = await response.json()
+
+  console.log(data)
+
+
   return (
     <ul className="flex gap-6 p-0 list-none">
       <li>
@@ -17,6 +32,15 @@ export function Menu() {
       </li>
       <li>
         <Link href="/access" prefetch={true}>Acessos</Link>
+      </li>
+      <li>
+        {
+          data?.autorizado ? (
+            <Link href="/profile" prefetch={true}>{data.usuario}</Link>
+          ) : (
+            <Link href="/login" prefetch={true}>Login</Link>
+          )
+        }
       </li>
     </ul>
   )

@@ -1,0 +1,23 @@
+GET http://localhost:3000/api/account
+
+###
+POST http://localhost:3000/api/account
+
+###
+POST http://localhost:3000/api/account?search=camisa
+
+###
+POST http://localhost:3000/api/account
+
+{
+  "username": "dog",
+  "password": "dog"
+}
+
+###
+POST http://localhost:3000/api/login
+  
+{
+  "username": "dog",
+  "password": "dog" 
+}
