@@ -1,4 +1,5 @@
 import { DefineCookies } from "@/components/molecules/define-cookies";
+import { ShowCookie } from "@/components/molecules/show-cookie";
 
 
 export default function Home() {
@@ -7,6 +8,7 @@ export default function Home() {
       <h1>Home</h1>
 
       <DefineCookies />
+      <ShowCookie />
     </main>
   );
 }
