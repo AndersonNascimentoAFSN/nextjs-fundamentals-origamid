@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
-import "./globals.css";
-
-import { Menu } from "@/components";
+import { Menu } from "./_components/menu";
+// import "../global.css";
 
 export const metadata: Metadata = {
   title: {
@@ -19,8 +18,10 @@ export default function RootLayout({
   return (
     <html lang="pt-BR">
       <body>
-        {/* <Menu /> */}
-        {children}
+        <Menu />
+        <main className="container m-4">
+          {children}
+        </main>
       </body>
     </html>
   );
