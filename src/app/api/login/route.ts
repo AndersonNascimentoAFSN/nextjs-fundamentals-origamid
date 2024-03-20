@@ -1,9 +1,9 @@
-import { NextResponse } from "next/server"
+import { NextRequest, NextResponse } from "next/server"
 import { cookies } from "next/headers"
 import { redirect } from "next/navigation"
 
-export async function POST(response: NextResponse) {
-  const { username, password } = await response.json() as { username: string, password: string }
+export async function POST(request: NextRequest) {
+  const { username, password } = await request.json() as { username: string, password: string }
 
   const result = await fetch('https://api.origamid.online/conta/login', {
     method: 'POST',

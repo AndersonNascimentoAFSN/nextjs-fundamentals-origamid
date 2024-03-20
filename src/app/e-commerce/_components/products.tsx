@@ -1,3 +1,4 @@
+import { Link } from "@/components"
 import { IProduct } from "../types/products"
 
 export async function Products() {
@@ -20,7 +21,7 @@ export async function Products() {
     <ul>
       {products?.map((product) => (
         <li key={product.id}>
-          <p>{product.nome}: R$ {product.preco}</p>
+          <p>{product.nome}: R$ {product.preco} <Link className="text-blue-900" href={`/e-commerce/products/${product.id}`}>Ver produto</Link></p>
         </li>
       ))}
     </ul>
