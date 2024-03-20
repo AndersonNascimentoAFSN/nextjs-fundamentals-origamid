@@ -2,10 +2,11 @@ import { IProduct } from "../types/products"
 
 export async function Products() {
   const products: IProduct[] = await fetch('https://api.origamid.online/produtos', {
-    next: {
-      revalidate: 5,
-      tags: ['products']
-    }
+    cache: 'no-store'
+    // next: {
+    //   revalidate: 5,
+    //   tags: ['products']
+    // }
   })
     .then((response) => {
       // if (!response.ok) throw new Error('Erro ao buscar produtos')
