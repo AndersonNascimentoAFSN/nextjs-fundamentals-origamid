@@ -1,6 +1,14 @@
 import { Suspense } from "react"
+import { Metadata } from "next"
 
 import { Products } from "../_components/products"
+
+export const metadata: Metadata = {
+  title: 'Produtos',
+  description: 'Produtos',
+  keywords: ['Notebook', 'SmartPhone'],
+  authors: [{ name: 'Anderson Nascimento', url: 'https://andersonnascimentoafsn.com.br' }]
+}
 
 export default function ProductsPage() {
   return (
